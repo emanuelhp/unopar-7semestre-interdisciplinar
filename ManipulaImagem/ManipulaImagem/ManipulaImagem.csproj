@@ -182,7 +182,7 @@
     <Compile Include="Services\ISelecaoArquivo.cs" />
     <Compile Include="Services\ITratamentoImagem.cs" />
     <Compile Include="ViewModels\AcaoEscalaViewModel.cs" />
-    <Compile Include="ViewModels\AcaoRotacionarViewModel.cs" />
+    <Compile Include="ViewModels\AcaoRotacaoViewModel.cs" />
     <Compile Include="ViewModels\AcaoTranslacaoViewModel.cs" />
     <Compile Include="ViewModels\EditarAcaoViewModel.cs" />
     <Compile Include="ViewModels\EditarManipulacaoViewModel.cs" />
@@ -197,7 +197,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AcaoRotacionarView.xaml">
+    <Page Include="Views\AcaoRotacaoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

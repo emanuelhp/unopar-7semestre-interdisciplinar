@@ -2,6 +2,9 @@
 
 namespace ManipulaImagem.ViewModels
 {
+    /// <summary>
+    /// Tela de edição da ação de translação
+    /// </summary>
     public class AcaoTranslacaoViewModel : Screen
     {
         #region Declarações
@@ -12,7 +15,14 @@ namespace ManipulaImagem.ViewModels
 
         #region Propriedades
 
+        /// <summary>
+        /// Valor da translação em X
+        /// </summary>
         public int TralacaoX { get; set; }
+
+        /// <summary>
+        /// Valor da translação em Y
+        /// </summary>
         public int TralacaoY { get; set; }
 
         public EditarAcaoViewModel EditarAcaoViewModel => _editarAcaoViewModel;
@@ -28,6 +38,7 @@ namespace ManipulaImagem.ViewModels
 
             PropertyChanged += AcaoEscalaViewModel_PropertyChanged;
 
+            // Recupera os valores iniciais
             TralacaoX = ((DataBase.AcaoTranslacao)_editarAcaoViewModel.Acao).X;
             TralacaoY = ((DataBase.AcaoTranslacao)_editarAcaoViewModel.Acao).Y;
         }
@@ -41,11 +52,17 @@ namespace ManipulaImagem.ViewModels
             switch (e.PropertyName)
             {
                 case nameof(TralacaoX):
+                    // Transmite a alteração da propriedade para a ação
                     ((DataBase.AcaoTranslacao)_editarAcaoViewModel.Acao).X = TralacaoX;
+
+                    // Informa que os parâmetros da ação foram modificados
                     _editarAcaoViewModel.ParametrosModificados();
                     break;
                 case nameof(TralacaoY):
+                    // Transmite a alteração da propriedade para a ação
                     ((DataBase.AcaoTranslacao)_editarAcaoViewModel.Acao).Y = TralacaoY;
+
+                    // Informa que os parâmetros da ação foram modificados
                     _editarAcaoViewModel.ParametrosModificados();
                     break;
             }

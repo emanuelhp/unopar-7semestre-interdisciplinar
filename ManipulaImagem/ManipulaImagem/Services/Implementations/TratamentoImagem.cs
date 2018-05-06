@@ -5,8 +5,16 @@ using System.Linq;
 
 namespace ManipulaImagem.Services.Implementations
 {
+    /// <summary>
+    /// Classe que permite o tratamento das imagens
+    /// </summary>
     class TratamentoImagem : ITratamentoImagem
     {
+        /// <summary>
+        /// Realiza uma determinada ação na imagem
+        /// </summary>
+        /// <param name="acao">Ação a executar</param>
+        /// <param name="imagem">Imagem</param>
         public void ProcessarAcao(Acao acao, IMagickImage imagem)
         {
             if(acao is AcaoEscala escala)
@@ -31,6 +39,11 @@ namespace ManipulaImagem.Services.Implementations
             }
         }
 
+        /// <summary>
+        /// Recupera as informações complementares de uma ação
+        /// </summary>
+        /// <param name="acao">Ação base</param>
+        /// <returns>Ação detalhada</returns>
         public Acao RecuperarDetalhes(Acao acao)
         {
             using (var db = new ManipulaImagemContext())

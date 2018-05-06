@@ -4,10 +4,16 @@ using System.Linq;
 
 namespace ManipulaImagem.ViewModels
 {
+    /// <summary>
+    /// Representa um ítem na listagem de manipulações
+    /// </summary>
     public class ManipulacaoItemViewModel : Screen
     {
         #region Eventos
 
+        /// <summary>
+        /// Evento chamado quando ocorre a exclusão da manipulação atual
+        /// </summary>
         public event EventHandler Excluido;
 
         #endregion
@@ -20,8 +26,14 @@ namespace ManipulaImagem.ViewModels
 
         #region Propriedade
 
+        /// <summary>
+        /// Informações do banco
+        /// </summary>
         public DataBase.Manipulacao Manipulacao { get; set; }
 
+        /// <summary>
+        /// Nome da manipulação
+        /// </summary>
         public string Nome => Manipulacao?.Nome;
 
         #endregion
@@ -37,6 +49,9 @@ namespace ManipulaImagem.ViewModels
 
         #region Funções públicas
 
+        /// <summary>
+        /// Exclui a manipulação atual
+        /// </summary>
         public void Excluir()
         {
             // Exclui a manipulação atual

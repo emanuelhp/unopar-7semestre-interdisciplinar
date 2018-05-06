@@ -60,7 +60,7 @@ namespace ManipulaImagem.ViewModels
                     case DataBase.AcaoEscala.INT_TIPO:
                         return new AcaoEscalaViewModel(this);
                     case DataBase.AcaoRotacao.INT_TIPO:
-                        return new AcaoRotacionarViewModel(this);
+                        return new AcaoRotacaoViewModel(this);
                     case DataBase.AcaoTranslacao.INT_TIPO:
                         return new AcaoTranslacaoViewModel(this);
                     default:

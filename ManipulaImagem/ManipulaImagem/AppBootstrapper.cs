@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace ManipulaImagem
 {
+    /// <summary>
+    /// Classe inicial do aplicativo
+    /// </summary>
     public class AppBootstrapper : BootstrapperBase
     {
         SimpleContainer container;

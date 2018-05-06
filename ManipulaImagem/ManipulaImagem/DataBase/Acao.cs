@@ -31,13 +31,24 @@ namespace ManipulaImagem.DataBase
         /// </summary>
         public Manipulacao Manipulacao { get; set; }
 
+        /// <summary>
+        /// Construtor
+        /// </summary>
         public Acao()
         {
             Tipo = TipoInterno;
         }
 
+        /// <summary>
+        /// Cria um umbeto para clonagem
+        /// </summary>
+        /// <returns>Clone</returns>
         protected abstract Acao CriarClone();
 
+        /// <summary>
+        /// Clona o objeto atual
+        /// </summary>
+        /// <returns>Cria um clone em memória do objeto atual</returns>
         public Acao Clone()
         {
             var c = CriarClone();

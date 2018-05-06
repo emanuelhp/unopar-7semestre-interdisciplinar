@@ -17,11 +17,19 @@ namespace ManipulaImagem.DataBase
 
         protected override int TipoInterno => INT_TIPO;
 
+        /// <summary>
+        /// Descrição textual do objeto
+        /// </summary>
+        /// <returns>Descrição</returns>
         public override string ToString()
         {
             return $"Rotacionar {Angulo}º";
         }
 
+        /// <summary>
+        /// Cria um clone em memória do objeto atual
+        /// </summary>
+        /// <returns>Clone</returns>
         protected override Acao CriarClone()
         {
             return new AcaoRotacao()

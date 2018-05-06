@@ -2,6 +2,9 @@
 
 namespace ManipulaImagem.ViewModels
 {
+    /// <summary>
+    /// Tela de edição da ação de escala
+    /// </summary>
     public class AcaoEscalaViewModel : Screen
     {
         #region Declarações
@@ -12,6 +15,9 @@ namespace ManipulaImagem.ViewModels
 
         #region Propriedades
 
+        /// <summary>
+        /// Percentagem de escala
+        /// </summary>
         public int EscalaPercentagem { get; set; }
 
         public EditarAcaoViewModel EditarAcaoViewModel => _editarAcaoViewModel;
@@ -27,6 +33,7 @@ namespace ManipulaImagem.ViewModels
 
             PropertyChanged += AcaoEscalaViewModel_PropertyChanged;
 
+            // Recupera os valores iniciais
             EscalaPercentagem = ((DataBase.AcaoEscala)_editarAcaoViewModel.Acao).Percentagem;
         }
 
@@ -34,12 +41,18 @@ namespace ManipulaImagem.ViewModels
 
         #region Resposta a eventos
 
+        /// <summary>
+        /// Evento disparado quando alguma propriedade é modificada
+        /// </summary>
         private void AcaoEscalaViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
                 case nameof(EscalaPercentagem):
+                    // Transmite a alteração da propriedade para a ação
                     ((DataBase.AcaoEscala)_editarAcaoViewModel.Acao).Percentagem = EscalaPercentagem;
+
+                    // Informa que os parâmetros da ação foram modificados
                     _editarAcaoViewModel.ParametrosModificados();
                     break;
             }
