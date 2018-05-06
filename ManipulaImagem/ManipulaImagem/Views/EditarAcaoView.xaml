@@ -1,0 +1,51 @@
+﻿<UserControl
+    x:Class="ManipulaImagem.Views.EditarAcaoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes" 
+    xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+    
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <material:ColorZone Mode="PrimaryMid" Padding="5">
+            <TextBlock x:Name="DisplayName" Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="0,5" />
+        </material:ColorZone>
+        <ComboBox 
+            Grid.Row="1"
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+            material:HintAssist.Hint="Ação"
+            ToolTip="Ação a ser aplicada na imagem"
+            VerticalAlignment="Center"
+            Margin="5"
+            ItemsSource="{Binding AcaoTipos}"
+            SelectedItem="{Binding AcaoTipo}"
+            DisplayMemberPath="Value"
+            />
+        <metro:TransitioningContentControl x:Name="AcaoViewModel" Transition="RightReplace" Grid.Row="2"/>
+        <StackPanel Grid.Row="3" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button 
+                x:Name="Salvar"
+                Margin="5" 
+                Content="Salvar" 
+                ToolTip="Salvar as alterações na ação"
+                />
+            <Button
+                x:Name="Cancelar"
+                Margin="5"
+                Content="Cancelar"
+                ToolTip="Descartar as alterações na ação"
+                Style="{StaticResource MaterialDesignFlatButton}"
+                />
+        </StackPanel>
+    </Grid>
+</UserControl>

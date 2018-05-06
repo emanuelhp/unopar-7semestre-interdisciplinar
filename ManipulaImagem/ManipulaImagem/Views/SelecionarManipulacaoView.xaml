@@ -1,0 +1,49 @@
+﻿<!-- Seleção de Manipulação -->
+<UserControl
+    x:Class="ManipulaImagem.Views.SelecionarManipulacaoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:cal="http://www.caliburnproject.org" 
+    xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes" 
+    
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800"
+    >
+    <StackPanel>
+        <material:ColorZone Mode="PrimaryMid" Padding="5">
+            <TextBlock x:Name="DisplayName" Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="0,5" />
+        </material:ColorZone>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <ItemsControl ItemsSource="{Binding Manipulacoes}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl cal:View.Model="{Binding}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <DockPanel Margin="0,5" LastChildFill="True">
+                    <Button 
+                        x:Name="Adicionar"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                        Margin="5"
+                        ToolTip="Adicionar"
+                    >
+                        <material:PackIcon Kind="Plus" />
+                    </Button>
+                    <TextBox 
+                        x:Name="Nome"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        material:HintAssist.Hint="Nome"
+                        ToolTip="Nome da nova manipulação (mínimo de 3 caracteres)"
+                        VerticalAlignment="Center"
+                        MaxLength="128"
+                    />
+                </DockPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>
